@@ -21,22 +21,38 @@ It includes:
 🔧 Project Structure
 .
 ├── src/
+
 │   ├── download.py          # Dataset downloader
+
 │   ├── preprocess.py        # Filtering, voxelization, sampling, augmentation
+
 │   ├── datasets.py          # PointNeXt-compatible PyTorch Dataset
+
 │   ├── utils.py             # Helper functions
+
 │   ├── EDA.py               # Visualization & stats
+
 ├── pipeline.ipynb           # Full pipeline execution 
+
 ├── MODEL_CHOICE.md          # Explain model choice
+
 ├── Illustrations            # Stores visualisations of pcds
+
 │     
+
 ├── class.json               # Class mapping from dataset 
+
 ├── requirements.txt
+
 ├── README.md
+
 └── Licensing.md             # Explain the license of the DataSet/Libraries used
 
+
 🚀 1. Clone this Repository
+
 git clone https://github.com/sleepybrain999/Point-Cloud-Semantic-Segmentation.git
+
 cd Point-Cloud-Semantic-Segmentation
 
 📥 2. Create a clean conda environment on python 3.11
@@ -121,9 +137,11 @@ PandaSet is licensed under Creative Commons Attribution–NoDerivatives 4.0 Inte
 
 
 PandaSet was created in collaboration between Scale AI and Hesai.
-© 2020 Scale AI. Licensed under the Creative Commons Attribution–NoDerivatives 4.0 International License (CC BY 4.0).
+© 2020 Scale AI. Licensed under the Creative Commons Attribution–NoDerivatives 4.0 International License (CC BY 4.0). https://creativecommons.org/licenses/by/4.0/#ref-appropriate-credit
+
 Dataset source: https://pandaset-git-master.scaleai1.vercel.app/
-https://www.kaggle.com/datasets/usharengaraju/pandaset-dataset
+
+PandaSet was preprocessed and used for training machine learning models
 
 
 PointNeXt Model Attribution

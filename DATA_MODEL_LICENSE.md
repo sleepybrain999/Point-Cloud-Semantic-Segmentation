@@ -31,6 +31,15 @@ This project references the PointNeXt architecture for model selection and examp
 
 PointNeXt License: MIT License
 
+Required reference:
+
+@InProceedings{qian2022pointnext,
+  title   = {PointNeXt: Revisiting PointNet++ with Improved Training and Scaling Strategies},
+  author  = {Qian, Guocheng and Li, Yuchen and Peng, Houwen and Mai, Jinjie and Hammoud, Hasan and Elhoseiny, Mohamed and Ghanem, Bernard},
+  booktitle=Advances in Neural Information Processing Systems (NeurIPS),
+  year    = {2022},
+}
+
 Python Dependency Licenses
 
 All libraries used in this repository adhere to the required permissive commercial-friendly licenses:

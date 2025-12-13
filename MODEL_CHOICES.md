@@ -15,12 +15,15 @@ The modernized strategies make model scalable to larger point cloud scenes, such
 From the authors’ NeurIPS 2022 response:
 
 Method	Test mIoU	Notes
+
 PointNet++	20.1	Baseline
+
 PointNeXt-S	48.4	4× faster throughput
 
 It is also easy to implement. This makes PointNeXt a balanced choice for speed, accuracy, and engineering simplicity.
 
 Alternatives Considered
+
 (A) Cylinder3D
 
 Cylinder3D is one of the strongest architectures for outdoor LiDAR segmentation.
