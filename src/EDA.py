@@ -8,7 +8,11 @@ from pandaset.geometry import lidar_points_to_ego
 def run_eda(data, labels,class_map):
     """
     Show and plot EDA analysis including number of scene, frame, points per frame, and class distribution
-    
+   
+    Parameters:
+    data        : lidar data
+    labels      : label data
+    class_map   : json file indicating class IDs and their corresponding class
     """
 
     num_scenes = len(data)                          #Number of scene
@@ -16,6 +20,19 @@ def run_eda(data, labels,class_map):
     points_per_frame  = [len(df)                    #Number of points per frame
                     for scene in data
                     for df in scene]
+    
+    x_max = np.array([np.max(df['x']) for scene in data for df in scene])
+    x_min = np.array([np.min(df['x']) for scene in data for df in scene])
+
+    y_max = np.array([np.max(df['y']) for scene in data for df in scene])
+    y_min = np.array([np.min(df['y']) for scene in data for df in scene])
+
+    z_max = np.array([np.max(df['z']) for scene in data for df in scene])
+    z_min = np.array([np.min(df['z']) for scene in data for df in scene])
+
+    spatial_extent_x = x_max - x_min
+    spatial_extent_y = y_max - y_min
+    spatial_extent_z = z_max - z_min
 
     all_labels = np.hstack([lbl for scene in labels for lbl in scene])    # Flatten the labels
     unique_classes, counts = np.unique(all_labels, return_counts=True)    # Unique class and their counts
@@ -42,7 +59,7 @@ def run_eda(data, labels,class_map):
     # -------------------------------
     # Create figure
     # -------------------------------
-    fig = plt.figure(figsize=(12, 10))
+    fig = plt.figure(figsize=(12, 16))
 
     # Text summary on top
     ax_text = fig.add_axes([0.05, 0.55, 0.9, 0.4])  # x, y, width, height
@@ -53,17 +70,35 @@ def run_eda(data, labels,class_map):
 Number of scenes: {num_scenes}
 Number of frames: {num_frame}
 
-POINTS PER FRAME:
+Points Per Frame:
   min  = {np.min(points_per_frame)}
   max  = {np.max(points_per_frame)}
   mean = {np.mean(points_per_frame):.2f}
   std  = {np.std(points_per_frame):.2f}
 
-SEMANTIC CLASS INFORMATION:
+Spatial Extent x:
+  min  = {np.min(spatial_extent_x)}
+  max  = {np.max(spatial_extent_x)}
+  mean = {np.mean(spatial_extent_x):.2f}
+  std  = {np.std(spatial_extent_x):.2f}
+
+Spatial Extent y:
+  min  = {np.min(spatial_extent_y)}
+  max  = {np.max(spatial_extent_y)}
+  mean = {np.mean(spatial_extent_y):.2f}
+  std  = {np.std(spatial_extent_y):.2f}
+
+Spatial Extent z:
+  min  = {np.min(spatial_extent_z)}
+  max  = {np.max(spatial_extent_z)}
+  mean = {np.mean(spatial_extent_z):.2f}
+  std  = {np.std(spatial_extent_z):.2f}
+
+Semantic Class Information:
   Total unique classes = {len(unique_classes)}
   Classes present      = {unique_classes}
 
-CLASSES PER FRAME:
+Classes Per Frame:
   min  = {np.min(classes_per_frame)}
   max  = {np.max(classes_per_frame)}
   mean = {np.mean(classes_per_frame):.2f}

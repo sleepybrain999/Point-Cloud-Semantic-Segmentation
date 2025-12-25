@@ -11,10 +11,10 @@ def data_download(kaggle_username,kaggle_key , dest_path="./data/pandaset",downl
     """
     os.environ['KAGGLE_USERNAME'] = kaggle_username
     os.environ['KAGGLE_KEY'] = kaggle_key
+    
 
     if download == True:
         from kaggle.api.kaggle_api_extended import KaggleApi
-
         # Set up Kaggle API
         os.makedirs(dest_path, exist_ok=True)
         api = KaggleApi()
